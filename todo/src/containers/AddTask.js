@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '..Actions';
+import { addTodo } from '..Actions/index.js';
 import { Form, Button, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
 
 class AddTask extends React.Component {
@@ -33,13 +33,26 @@ newTask = (e) => {
 }
 
 render() {
+    const { task } = this.state
     return (
         <Container>
-            <Form>
+            <Form onSubmit={this.newTask}>
                 <Label>Add Task</Label>
-                <Input type='text' name='task' placeholder='Add task' />
+                <FormGroup>
+                    <Input type='text' name='task' placeholder='Add task' value={task} onChange={this.handleChange}/>
+                </FormGroup>
+                <Button>Add Task</Button>
+
             </Form>
         </Container>
 
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+
+    }
+}
+
+export default connect(mapStateToProps)(AddTask);
