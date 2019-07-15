@@ -60,7 +60,9 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = {
-    addTodo: addTodo
-}
-export default connect(mapStateToProps, mapDispatchToProps, {addTodo})(AddTask);
+// const mapDispatchToProps = {
+//     addTodo: addTodo
+// }
+
+
+export default connect(mapStateToProps, {addTodo})(AddTask);
