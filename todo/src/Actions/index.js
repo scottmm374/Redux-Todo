@@ -1,10 +1,14 @@
 export const ADD_TODO = 'ADD_TODO';
 
-export function addTodo (task) {
+let nextToDo = 0;
+export function addTodo(task) {
     return {
         type: ADD_TODO,
-            payload: {
-                task,
-            }
+        payload: {
+            id: nextToDo++,
+            task
+        }
+
     }
 }
+

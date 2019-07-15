@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTodo } from '..Actions/index.js';
-import { Form, Button, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
+import  { addTodo }  from '../src/actions/index.js';
+import { Form, Button, FormGroup, Label, Input, Container } from 'reactstrap';
 
 class AddTask extends React.Component {
     constructor() {
@@ -10,27 +10,29 @@ class AddTask extends React.Component {
             task: []
         }
     }
-}
 
-handleChange = (e) => {
-    e.preventDefault()
-    this.setState({
-        [e.target.name]: e.target.value,
-    })
-}
 
-newTask = (e) => {
-    e.preventDefault()
+    handleChange = (e) => {
+        e.preventDefault()
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
+    }
 
-    const { task } = this.state
-    this.props.addTodo(task)
+    newTask = (e) => {
+        e.preventDefault()
 
-    //reset form after submit
+        const { task } = this.state
+        this.props.addTodo(task)
 
-    this.setStae({
-        task: ''
-    })
-}
+        //reset form after submit
+
+        this.setState({
+            task: ''
+        })
+    }
+
+
 
 render() {
     const { task } = this.state
@@ -39,7 +41,7 @@ render() {
             <Form onSubmit={this.newTask}>
                 <Label>Add Task</Label>
                 <FormGroup>
-                    <Input type='text' name='task' placeholder='Add task' value={task} onChange={this.handleChange}/>
+                    <Input type='text' name='task' placeholder='Add task' value={task} onChange={this.handleChange} />
                 </FormGroup>
                 <Button>Add Task</Button>
 
@@ -48,11 +50,17 @@ render() {
 
     )
 }
+}
+
 
 const mapStateToProps = (state) => {
     return {
-
+        todos: state.todos
     }
 }
 
-export default connect(mapStateToProps)(AddTask);
+
+const mapDispatchToProps = {
+    addTodo: addTodo
+}
+export default connect(mapStateToProps, mapDispatchToProps, {addTodo})(AddTask);

@@ -1,22 +1,25 @@
-import { ADD_TODO } from '../Actions/index';
+import { ADD_TODO } from '../actions/index';
 
 const initialState = {
     task: []
 }
 
-export default function (state=initialState, action) {
+export default function (state = initialState, action) {
     switch (action.type) {
-        case ADD_TODO : {
-            const newTask = state.task;
+        case ADD_TODO: {
+            return {
+                ...state,
+                task: action.payload.task,
+                id: action.payload.id,
+                completed: false
+            }
 
         }
 
-        return {
-            ...state,
-            task: newTask
-        }
         default:
             return state
 
     }
+
 }
+
