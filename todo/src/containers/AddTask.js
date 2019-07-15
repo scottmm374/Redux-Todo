@@ -36,6 +36,7 @@ class AddTask extends React.Component {
 
 render() {
     const { task } = this.state
+    console.log("Addtask", task)
     return (
         <Container>
             <Form onSubmit={this.newTask}>
@@ -54,15 +55,16 @@ render() {
 
 
 const mapStateToProps = (state) => {
+    console.log("mapstateprops", state)
     return {
         todos: state.todos
     }
 }
 
 
-// const mapDispatchToProps = {
-//     addTodo: addTodo
-// }
+const mapDispatchToProps = {
+    addTodo: addTodo
+}
 
 
-export default connect(mapStateToProps, {addTodo})(AddTask);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTask);
