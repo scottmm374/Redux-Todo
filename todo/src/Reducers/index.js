@@ -1,4 +1,4 @@
-import { ADD_TODO } from '../actions/index';
+import { ADD_TODO } from '../Actions/index'
 
 const initialState = {
     task: []

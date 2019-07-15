@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import  { addTodo }  from '../src/Actions/index';
-import { Form, Button, FormGroup, Label, Input, Container } from 'reactstrap';
+import React from 'react'
+import { connect } from 'react-redux'
+import  { addTodo }  from '../Actions/index'
+import { Form, Button, FormGroup, Label, Input, Container } from 'reactstrap'
 
 class AddTask extends React.Component {
     constructor() {

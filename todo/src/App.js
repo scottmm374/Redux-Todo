@@ -1,5 +1,5 @@
 import React from 'react';
-import AddTask from '../src/containers/AddTask';
+import AddTask from './Actions/index'
 import './App.css';
 
 function App() {
