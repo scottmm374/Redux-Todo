@@ -3,16 +3,17 @@ import { connect } from 'react-redux';
 import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 
 function ToDoList(props) {
-    const {  task } = props
+    const { task } = props
     return (
         <Container>
             <ListGroup>
                 <ListGroupItem>
+                    ${ task }
 
                 </ListGroupItem>
                 <ListGroupItem>
-                    { task.map (( task, i) => {
-                        return <ListGroupItem key={i}>{task}</ListGroupItem>
+                    { task.map (( todo, i) => {
+                        return <ListGroupItem key={i}>{todo}</ListGroupItem>
                     })}
                 </ListGroupItem>
             </ListGroup>
@@ -24,7 +25,6 @@ function ToDoList(props) {
 const mapStateToProps = (state) => {
     return{
         task: state.task,
-        id: state.id
     }
 }
 
