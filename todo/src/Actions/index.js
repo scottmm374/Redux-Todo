@@ -1,4 +1,5 @@
 export const ADD_TODO = 'ADD_TODO';
+export const TOGGLE_TASK = 'TOGGLE_TASK';
 
 let nextToDo = 0;
 export function addTodo(task) {
@@ -9,6 +10,13 @@ export function addTodo(task) {
             task
         }
 
+    }
+}
+
+export function toggleTask (id) {
+    return {
+        type: TOGGLE_TASK,
+        id
     }
 }
 
