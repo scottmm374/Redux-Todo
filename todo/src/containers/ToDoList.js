@@ -9,9 +9,6 @@ function ToDoList(props) {
         <Container className="list">
             <CardBody>
             <ListGroup>
-                {/* <ListGroupItem>
-                    Things To Do: {task}
-                </ListGroupItem> */}
                 <ListGroupItem>
                     {task.map((item, i) => {
                         return <ListGroupItem key={i}>{item}</ListGroupItem>

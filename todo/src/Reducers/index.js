@@ -15,13 +15,15 @@ export default function (state = initialState, action) {
                 completed: false
             }
         }
+
+        case 'TOGGLE_TASK':
+                return state.map(task =>
+                    (task.id === action.id) ? {...task, completed: !task.completed} : task
+                    )
+
         default:
             return state
     }
 }
 
-// case 'TOGGLE_TASK':
-        //         return state.map(task =>
-        //             (task.id === action.id)
-        //             ? {...task, completed: !task.completed} : task
-        //             )
+
