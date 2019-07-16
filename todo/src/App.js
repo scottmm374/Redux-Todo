@@ -10,8 +10,9 @@ class App extends React.Component {
       <div className="App">
         <Container>
          
-            <ToDoList />
+            
             <AddTask />
+            <ToDoList />
           
         </Container>
 

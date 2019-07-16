@@ -1,30 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, ListGroup, ListGroupItem } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, CardBody } from 'reactstrap';
+
 
 function ToDoList(props) {
     const { task } = props
     return (
-        <Container>
+        <Container className="list">
+            <CardBody>
             <ListGroup>
                 <ListGroupItem>
-                    ${ task }
-
-                </ListGroupItem>
-                <ListGroupItem>
-                    { task.map (( todo, i) => {
-                        return <ListGroupItem key={i}>{todo}</ListGroupItem>
-                    })}
+                    {task}
                 </ListGroupItem>
             </ListGroup>
-
+            </CardBody>  
         </Container>
     )
 }
 
+
+
 const mapStateToProps = (state) => {
-    return{
-        task: state.task,
+    console.log("list", state)
+    return {
+        task: state.task
     }
 }
 
