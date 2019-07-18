@@ -1,7 +1,7 @@
 import { ADD_TODO, TOGGLE_TASK } from '../Actions/index'
 
 const initialState = {
-    task: []
+    task: [] 
 }
 
 export default function (state = initialState, action) {
@@ -16,11 +16,15 @@ export default function (state = initialState, action) {
             }
         }
 
-        case 'TOGGLE_TASK':
-                return state.map(task =>
-                    (task.id === action.id) ? {...task, completed: !task.completed} : task
-                    )
-
+        case TOGGLE_TASK: {
+            console.log('taskDone', state)
+                return state.map(task => {
+                  if (task.id === action.payload.id) {
+                      return Object.assign ({}, task, { completed: !task.completed });
+                  }
+                    return task;
+                });
+            }
         default:
             return state
     }

@@ -4,18 +4,16 @@ import { Container, ListGroup, ListGroupItem, CardBody } from 'reactstrap';
 
 
 function ToDoList(props) {
-    const { task } = props
+    const { todo } = props
     return (
         <Container className="list">
             <CardBody>
-            <ListGroup>
                 <ListGroupItem>
-                    {task.map((item, i) => {
-                        return <ListGroupItem key={i}>{item}</ListGroupItem>
+                    {todo.map((item, i) => {
+                        return <ListGroupItem key={i}>{todo} </ListGroupItem>
                     })}
                 </ListGroupItem>
-            </ListGroup>
-            </CardBody>  
+            </CardBody>
         </Container>
     )
 }
@@ -25,7 +23,7 @@ function ToDoList(props) {
 const mapStateToProps = (state) => {
     console.log("list", state)
     return {
-        task: state.task
+        todo: state.task
     }
 }
 

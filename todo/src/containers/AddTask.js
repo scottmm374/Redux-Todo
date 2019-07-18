@@ -7,7 +7,7 @@ class AddTask extends React.Component {
     constructor() {
         super()
         this.state = {
-            task: []
+            task: ''
         }
     }
 
@@ -44,7 +44,7 @@ render() {
                 <FormGroup>
                     <Input type='text' name='task' placeholder='Add task' value={task} onChange={this.handleChange} />
                 </FormGroup>
-                <Button>Add Task</Button>
+                <Button color="secondary">Add Task</Button>
 
             </Form>
         </Container>

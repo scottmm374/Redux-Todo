@@ -16,7 +16,7 @@ export function addTodo(task) {
 export function toggleTask (id) {
     return {
         type: TOGGLE_TASK,
-        id
+        payload: id
     }
 }
 
