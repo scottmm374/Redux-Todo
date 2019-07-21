@@ -23,7 +23,12 @@ class AddTask extends React.Component {
         e.preventDefault()
 
         const { task } = this.state
-        this.props.addTodo(task)
+        const newToDo = {
+            task,
+            completed: false,
+            id: Date.now(),
+        }
+        this.props.addTodo(newToDo)
 
         //reset form after submit
 

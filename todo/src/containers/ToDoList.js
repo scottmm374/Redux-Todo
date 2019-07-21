@@ -1,18 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Container, ListGroup, ListGroupItem, CardBody } from 'reactstrap';
+import { Container, ListGroupItem, CardBody } from 'reactstrap';
+import { toggleTask } from '../Actions/index';
 
 
 function ToDoList(props) {
+    const style = { textDecoration: 'line-through' };
     const { todo } = props
     return (
         <Container className="list">
             <CardBody>
-                <ListGroupItem>
+                <span>
                     {todo.map((item, i) => {
-                        return <ListGroupItem key={i}>{todo} </ListGroupItem>
+                        return <ListGroupItem key={i} onClick={() => props.toggleTask(item.id)}
+                         style={item.completed ? style : null}>{item.task} </ListGroupItem>
                     })}
-                </ListGroupItem>
+                </span>
             </CardBody>
         </Container>
     )
@@ -27,7 +30,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ToDoList)
+export default connect(mapStateToProps, {toggleTask})(ToDoList)
 
 
 

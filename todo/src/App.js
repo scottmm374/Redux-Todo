@@ -8,15 +8,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Container>
-         
-            
+        <Container>     
             <AddTask />
             <ToDoList />
-          
         </Container>
-
-
       </div >
     )
   }

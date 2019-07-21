@@ -1,30 +1,27 @@
 import { ADD_TODO, TOGGLE_TASK } from '../Actions/index'
 
 const initialState = {
-    task: [] 
+    task: []
 }
 
 export default function (state = initialState, action) {
-    console.log("reducer", state, action)
     switch (action.type) {
         case ADD_TODO: {
             return {
                 ...state,
-                task: state.task.concat(action.payload.task),
-                id: action.payload.id,
-                completed: false
+                task: [
+                    ...state.task,
+                    action.payload,
+                ]
             }
         }
 
         case TOGGLE_TASK: {
-            console.log('taskDone', state)
-                return state.map(task => {
-                  if (task.id === action.payload.id) {
-                      return Object.assign ({}, task, { completed: !task.completed });
-                  }
-                    return task;
-                });
-            }
+           return {
+               ...state,
+               task: state.task.map((item) => item.id === action.payload ? {...item, completed: !item.completed} : item)
+           }
+        }
         default:
             return state
     }
